@@ -1,6 +1,6 @@
-import React from "react";
-import { Link, Switch, Route } from "react-router-dom";
-import { Grommet, grommet, Box } from "grommet";
+import React from 'react';
+import { Link, Switch, Route } from 'react-router-dom';
+import { Grommet, grommet, Box } from 'grommet';
 
 const App = () => {
   return (

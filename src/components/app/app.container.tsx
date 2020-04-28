@@ -1,5 +1,5 @@
-import React from "react";
-import App from "./app.view";
+import React from 'react';
+import App from './app.view';
 
 const AppContainer = () => {
   return <App />;

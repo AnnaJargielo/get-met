@@ -1,48 +1,26 @@
 import React from 'react';
-import { Link, Switch, Route } from 'react-router-dom';
-import { Grommet, grommet, Box } from 'grommet';
+import { Switch, Route } from 'react-router-dom';
+import { Grommet, Box, Header, Main } from 'grommet';
+import Navbar from '../navbar/navbar.view';
+import { ROUTES } from '../../routes';
 
 const App = () => {
   return (
-    <Grommet theme={grommet}>
-      <Box align="center" background="neutral-2">
-        <div>
-          <header>
-            <div>
-              <nav>
-                <ul>
-                  <li>
-                    <Link to="/">Home</Link>
-                  </li>
-                  <li>
-                    <Link to="/about">About</Link>
-                  </li>
-                  <li>
-                    <Link to="/users">Users</Link>
-                  </li>
-                </ul>
-              </nav>
-            </div>
-          </header>
+    <Grommet full>
+      <Box fill>
+        <Header height="small">
+          <Navbar />
+        </Header>
+        <Main fill={false}>
           <Switch>
-            <Route path="/about">
-              <About />
-            </Route>
-            <Route path="/users">
-              <Users />
-            </Route>
-            <Route path="/">
-              <Home />
-            </Route>
+            {ROUTES.map((item, idx) => (
+              <Route key={idx} {...item} />
+            ))}
           </Switch>
-        </div>
+        </Main>
       </Box>
     </Grommet>
   );
 };
-
-const About = () => <div>About</div>;
-const Users = () => <div>Users</div>;
-const Home = () => <div>Home</div>;
 
 export default App;

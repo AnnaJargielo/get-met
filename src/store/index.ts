@@ -8,4 +8,4 @@ export const store = configureStore({
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
-export const useAppDispatch = () => useDispatch<AppDispatch>(); // Export a hook that can be resused to resolve types
+export const useAppDispatch = () => useDispatch<AppDispatch>();

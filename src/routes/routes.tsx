@@ -1,5 +1,6 @@
 import React from 'react';
 import { RouteProps } from 'react-router-dom';
+import { Objects } from '../components/objects';
 
 interface Route extends RouteProps {
   title?: string;
@@ -9,7 +10,12 @@ interface Route extends RouteProps {
 const ROUTES: Route[] = [
   {
     path: '/',
-    component: () => <div>Home</div>,
+    component: () => (
+      <div>
+        Home
+        <Objects />
+      </div>
+    ),
     exact: true,
     title: 'Home',
     showInNavbar: true,

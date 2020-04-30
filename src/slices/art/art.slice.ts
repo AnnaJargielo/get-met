@@ -10,7 +10,7 @@ const artSlice = createSlice({
   name: 'art',
   initialState,
   reducers: {
-    getArt(state, action) {
+    getArt(state) {
       state.isLoading = true;
     },
     getArtSuccess(state, action) {

@@ -1,13 +1,13 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
+import { EnvVariables } from '../utils';
 
 export interface Objects {
   total: number;
   objectIDs: Array<number>;
 }
 
-export const fetchObjects = createAsyncThunk<Objects>('objects/fetch', async () => {
+export const fetchObjects = async () => {
   const response = await fetch(
-    `https://collectionapi.metmuseum.org/public/collection/v1/objects?departmentIds=1`
+    `${EnvVariables.API_URL}/public/collection/v1/objects?departmentIds=1`
   );
 
   if (response.status >= 400) {
@@ -15,4 +15,4 @@ export const fetchObjects = createAsyncThunk<Objects>('objects/fetch', async () 
   }
 
   return (await response.json()) as Objects;
-});
+};

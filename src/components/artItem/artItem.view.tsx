@@ -1,8 +1,8 @@
 import React from 'react';
-import { Object } from '../../actions';
+import { ObjectItem } from '../../hooks';
 import { Image, Box } from 'grommet';
 
-const ArtItem = ({ item }: { item: Object }) => {
+const ArtItem = ({ item }: { item: ObjectItem }) => {
   return (
     <Box height="small" width="small">
       <Image fit="cover" src={item.primaryImageSmall} />

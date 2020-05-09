@@ -1,4 +1,5 @@
-import { EnvVariables } from '../utils';
+import { useDataApi } from './useDataApi';
+import { useEffect } from 'react';
 
 interface Constituents {
   role: string;
@@ -13,7 +14,7 @@ interface Tag {
   AAT_URL: string;
 }
 
-export interface Object {
+export interface ObjectItem {
   objectID: number;
   isHighlight: boolean;
   accessionNumber: string;
@@ -71,22 +72,13 @@ export interface Object {
   isTimelineWork: boolean;
 }
 
-export const fetchObject = async (objectId: number) => {
-  const response = await fetch(`${EnvVariables.API_URL}/public/collection/v1/objects/${objectId}`);
+export const useObject = (objectId: number): [ObjectItem | undefined, boolean, Error | null] => {
+  const url = `/objects/${objectId}`;
+  const [{ data, isLoading, error }, setUrl] = useDataApi<ObjectItem>(url);
 
-  if (response.status >= 400) {
-    throw new Error(response.statusText);
-  }
+  useEffect(() => {
+    setUrl(url);
+  }, [url, setUrl]);
 
-  return (await response.json()) as Object;
-};
-
-export const fetchDiscovery = async (objectId: number) => {
-  const response = await fetch(`${EnvVariables.API_URL}/public/collection/v1/objects/${objectId}`);
-
-  if (response.status >= 400) {
-    throw new Error(response.statusText);
-  }
-
-  return (await response.json()) as Object;
+  return [data, isLoading, error];
 };

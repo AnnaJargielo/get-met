@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import ArtItem from './artItem.view';
-import { Object } from '../../actions';
+import { ObjectItem } from '../../hooks';
 import { EnvVariables } from '../../utils';
 
-const useArtItem = (id: number): [Object | undefined | null, boolean, Error | null] => {
-  const [data, setData] = useState<Object | undefined | null>();
+const useArtItem = (id: number): [ObjectItem | undefined | null, boolean, Error | null] => {
+  const [data, setData] = useState<ObjectItem | undefined | null>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<Error | null>(null);
 

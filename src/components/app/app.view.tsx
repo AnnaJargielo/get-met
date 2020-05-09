@@ -3,10 +3,23 @@ import { Switch, Route } from 'react-router-dom';
 import { Grommet, Box, Header, Main } from 'grommet';
 import Navbar from '../navbar/navbar.view';
 import { ROUTES } from '../../routes';
+import { deepMerge } from 'grommet/utils';
+import { base, ThemeType } from 'grommet/themes';
+
+const customTheme: ThemeType = {
+  button: {
+    primary: {
+      color: '#e4002b',
+    },
+    border: {
+      color: '#e4002b',
+    },
+  },
+};
 
 const App = () => {
   return (
-    <Grommet full>
+    <Grommet full theme={deepMerge(base, customTheme)}>
       <Box fill>
         <Header height="small">
           <Navbar />

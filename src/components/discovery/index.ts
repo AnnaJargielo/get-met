@@ -1,1 +1,1 @@
-export { default as Discovery } from './discovery.context';
+export { default as Discovery } from './discovery.container';

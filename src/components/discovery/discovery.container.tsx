@@ -1,11 +1,9 @@
 import React from 'react';
 import Discovery from './discovery.view';
-import { useDiscoveryContext } from './hooks';
 import { useObject } from '../../hooks';
 
-const DiscoveryContainer = () => {
-  const { selectedId, selectNewDiscovery } = useDiscoveryContext();
-  const [data, isLoading, error] = useObject(selectedId!);
+const DiscoveryContainer = ({ id }: { id: number }) => {
+  const [data, isLoading, error] = useObject(id);
 
   if (isLoading || data === undefined) {
     return <div>Loading</div>;
@@ -15,7 +13,7 @@ const DiscoveryContainer = () => {
     return <div>{error.message}</div>;
   }
 
-  return <Discovery discovery={data} newDiscoveryClick={selectNewDiscovery} />;
+  return <Discovery discovery={data!} />;
 };
 
 export default DiscoveryContainer;

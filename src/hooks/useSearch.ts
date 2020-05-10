@@ -21,7 +21,7 @@ export interface SearchResult {
 
 export const useSearch = (
   { q, ...searchParams }: SearchParams = { q: '' }
-): [SearchResult | undefined, boolean, Error | null] => {
+): [SearchResult | null | undefined, boolean, Error | null] => {
   const queryParams = queryString.stringify(searchParams);
   const url = `/search?q=${q}&${queryParams}`;
   const [{ data, isLoading, error }] = useDataApi<SearchResult>(url);

@@ -72,7 +72,9 @@ export interface ObjectItem {
   isTimelineWork: boolean;
 }
 
-export const useObject = (objectId: number): [ObjectItem | undefined, boolean, Error | null] => {
+export const useObject = (
+  objectId: number
+): [ObjectItem | null | undefined, boolean, Error | null] => {
   const url = `/objects/${objectId}`;
   const [{ data, isLoading, error }, setUrl] = useDataApi<ObjectItem>(url);
 

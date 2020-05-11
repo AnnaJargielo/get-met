@@ -1,8 +1,8 @@
 import React from 'react';
-import { Discovery } from '../discovery';
+import Home from './home.view';
 
 const HomeContainer = () => {
-  return <Discovery />;
+  return <Home />;
 };
 
 export default HomeContainer;

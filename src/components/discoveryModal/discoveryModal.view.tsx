@@ -12,12 +12,12 @@ const DiscoveryModal = ({
   return (
     <Layer onEsc={() => setShow(false)} onClickOutside={() => setShow(false)}>
       <Box align="center" pad="large">
-        <Carousel initialChild={0}>
-          <Box height="large" width="auto">
+        <Carousel fill>
+          <Box height="large" width="large">
             <Image fit="contain" src={discovery.primaryImage} />
           </Box>
           {discovery.additionalImages.map((src) => (
-            <Box height="large" width="auto">
+            <Box height="large" width="large">
               <Image fit="contain" src={src} />
             </Box>
           ))}

@@ -1,7 +1,6 @@
 import React from 'react';
 import { RouteProps } from 'react-router-dom';
-import { Home } from '../components/home';
-import Search from '../components/search';
+import { Home, ObjectPage, Search } from '../components';
 
 interface Route extends RouteProps {
   title?: string;
@@ -19,6 +18,12 @@ const ROUTES: Route[] = [
   {
     path: '/search',
     component: () => <Search />,
+    title: 'Search',
+    showInNavbar: true,
+  },
+  {
+    path: '/object/:objectId',
+    component: () => <ObjectPage />,
     title: 'Search',
     showInNavbar: true,
   },

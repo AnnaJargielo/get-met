@@ -13,7 +13,7 @@ type Action<T> =
   | { type: ActionType.FETCH_FAILURE; payload: Error };
 
 interface State<T> {
-  data?: T;
+  data?: T | null;
   isLoading: boolean;
   error: null | Error;
 }
@@ -38,6 +38,7 @@ const dataFetchReducer = <T>(state: State<T>, action: Action<T>): State<T> => {
         ...state,
         isLoading: false,
         error: action.payload,
+        data: null,
       };
     default:
       throw new Error();

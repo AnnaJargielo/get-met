@@ -1,7 +1,8 @@
 import React from 'react';
+import { DiscoveriesGenerator } from '../discoveriesGenerator';
 
 const HomeView = () => {
-  return <div>Home</div>;
+  return <DiscoveriesGenerator />;
 };
 
 export default HomeView;

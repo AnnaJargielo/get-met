@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { SearchResult, useSearch } from '../../hooks';
 import { getRandomInt } from '../../utils';
-import DiscoveryContainer from './discovery.container';
+import DiscoveryGeneratorContainer from './discoveriesGenerator.container';
 
 export interface DiscoveryState {
   searchResult: SearchResult;
@@ -20,9 +20,9 @@ const initialState: DiscoveryState = {
   },
 };
 
-export const DiscoveryContext = React.createContext<DiscoveryState>(initialState);
+export const DiscoveriesGeneratorContext = React.createContext<DiscoveryState>(initialState);
 
-const DiscoveryContextProvider = () => {
+const DiscoveriesGeneratorContextProvider = () => {
   const [data, isLoading, error] = useSearch({ q: '', hasImages: true });
 
   const [selectedId, setSelectedId] = useState<number | undefined>();
@@ -48,10 +48,12 @@ const DiscoveryContextProvider = () => {
   }
 
   return (
-    <DiscoveryContext.Provider value={{ searchResult: data, selectedId, selectNewDiscovery }}>
-      <DiscoveryContainer />
-    </DiscoveryContext.Provider>
+    <DiscoveriesGeneratorContext.Provider
+      value={{ searchResult: data!, selectedId, selectNewDiscovery }}
+    >
+      <DiscoveryGeneratorContainer />
+    </DiscoveriesGeneratorContext.Provider>
   );
 };
 
-export default DiscoveryContextProvider;
+export default DiscoveriesGeneratorContextProvider;

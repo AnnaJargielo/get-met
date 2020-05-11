@@ -24,8 +24,7 @@ const ROUTES: Route[] = [
   {
     path: '/object/:objectId',
     component: () => <ObjectPage />,
-    title: 'Search',
-    showInNavbar: true,
+    showInNavbar: false,
   },
   {
     path: '/about',

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Text, Button, Collapsible } from 'grommet';
+import { Anchor, Box, Text, Button, Collapsible } from 'grommet';
 import { FormDown, FormNext } from 'grommet-icons';
 import { ObjectItem } from '../../hooks';
 
@@ -35,10 +35,13 @@ const Details = ({ discovery }: { discovery: ObjectItem }) => {
         <Text>Bio: {discovery.artistDisplayBio}</Text>
         <Text>
           Tags:{' '}
-          {(discovery.tags || []).map((tag) => (
-            <Text>
-              {tag.AAT_URL} {tag.term}
-            </Text>
+          {(discovery.tags || []).map((tag, idx) => (
+            <Anchor
+              key={`${tag.term}-${idx}`}
+              href={tag.AAT_URL}
+              label={tag.term}
+              margin={{ right: 'xsmall' }}
+            />
           ))}
         </Text>
       </Collapsible>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { RouteProps } from 'react-router-dom';
 import { Home } from '../components/home';
+import Search from '../components/search';
 
 interface Route extends RouteProps {
   title?: string;
@@ -17,7 +18,7 @@ const ROUTES: Route[] = [
   },
   {
     path: '/search',
-    component: () => <div>Search</div>,
+    component: () => <Search />,
     title: 'Search',
     showInNavbar: true,
   },

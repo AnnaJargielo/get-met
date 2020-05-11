@@ -15,6 +15,10 @@ const customTheme: ThemeType = {
       color: '#e4002b',
     },
   },
+  anchor: {
+    fontWeight: 300,
+    color: '#000',
+  },
 };
 
 const App = () => {

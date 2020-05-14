@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { TextInput } from 'grommet';
+import { Grid } from 'grommet';
 import { useSearch, useDebounce } from '../../hooks';
+import GridElement from './components/gridElement';
 
 const Search = () => {
   const [inputValue, setInputValue] = useState('');
@@ -10,12 +12,19 @@ const Search = () => {
     setInputValue(e.currentTarget.value);
   };
 
+  // TODO remove slice
+  const dataObjects = useMemo(() => {
+    return data?.objectIDs?.slice(0, 6);
+  }, [data]);
+
   return (
     <>
       <TextInput placeholder="type here" value={inputValue} onChange={onInputChange} />
-      {data?.objectIDs.map((item) => (
-        <div key={item}>{item}</div>
-      ))}
+      <Grid rows="small" columns="small" gap="large" margin="large">
+        {dataObjects?.map((item, idx) => (
+          <GridElement key={`${item}-${idx}`} gridItem={item} />
+        ))}
+      </Grid>
     </>
   );
 };

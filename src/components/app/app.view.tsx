@@ -9,15 +9,23 @@ import { base, ThemeType } from 'grommet/themes';
 const customTheme: ThemeType = {
   button: {
     primary: {
-      color: '#e4002b',
+      color: '#E4022b',
     },
     border: {
-      color: '#e4002b',
+      color: '#E4022b',
     },
   },
   anchor: {
     fontWeight: 300,
     color: '#000',
+  },
+  global: {
+    colors: {
+      'accent-1': '#E4022b',
+    },
+    font: {
+      family: 'Roboto-Thin',
+    },
   },
 };
 

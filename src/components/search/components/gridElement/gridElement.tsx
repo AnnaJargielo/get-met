@@ -17,7 +17,7 @@ export const GridElement = ({ gridItem }: GridProps) => {
   return (
     <Box justify="center">
       {error && (
-        <Text alignSelf="center" color="#E4032B">
+        <Text alignSelf="center" color="accent-1">
           Artwork not found
         </Text>
       )}

@@ -1,0 +1,14 @@
+@font-face {
+  font-family: 'ButlerBold';
+  src: local('ButlerBold'), url(./fonts/Butler_Bold.otf) format('opentype');
+}
+
+@font-face {
+  font-family: 'Otamendi';
+  src: local('Otamendi'), url(./fonts/Otamendi.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Roboto-Thin';
+  src: local('Roboto-Thin'), url(./fonts/Roboto-Thin.ttf) format('truetype');
+}

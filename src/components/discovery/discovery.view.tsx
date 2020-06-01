@@ -13,7 +13,7 @@ const DiscoveryView = ({ discovery }: { discovery: ObjectItem }) => {
       <Text>{discovery.title}</Text>
       <Text>{discovery.artistDisplayName}</Text>
 
-      <Box width="auto" height="medium" round="small" align="center" justify="center">
+      <Box width="auto" height="medium" align="center" justify="center">
         <Image
           fit="contain"
           src={discovery.primaryImageSmall}

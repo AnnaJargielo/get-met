@@ -4,30 +4,8 @@ import { Grommet, Box, Header, Main } from 'grommet';
 import Navbar from '../navbar/navbar.view';
 import { ROUTES } from '../../routes';
 import { deepMerge } from 'grommet/utils';
-import { base, ThemeType } from 'grommet/themes';
-
-const customTheme: ThemeType = {
-  button: {
-    primary: {
-      color: '#E4022b',
-    },
-    border: {
-      color: '#E4022b',
-    },
-  },
-  anchor: {
-    fontWeight: 300,
-    color: '#000',
-  },
-  global: {
-    colors: {
-      'accent-1': '#E4022b',
-    },
-    font: {
-      family: 'Roboto-Thin',
-    },
-  },
-};
+import { base } from 'grommet/themes';
+import customTheme from './app.theme';
 
 const App = () => {
   return (

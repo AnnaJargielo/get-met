@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { ROUTES } from '../../routes';
 import { style } from 'typestyle';
 import { Box, Text } from 'grommet';
@@ -26,10 +26,15 @@ const NavRoutes = () => {
   const routes = useMemo(
     () =>
       ROUTES.filter((item) => item.showInNavbar).map((item, idx) => (
-        <Box key={idx} margin={{ left: 'xsmall', right: 'xsmall' }}>
-          <Link to={item.path as string} className={style(styles.navbarElement)}>
+        <Box key={idx} margin={{ left: 'small' }}>
+          <NavLink
+            exact
+            to={item.path as string}
+            activeClassName={style(styles.navbarElementActive)}
+            className={style(styles.navbarElement)}
+          >
             {item.title}
-          </Link>
+          </NavLink>
         </Box>
       )),
     []

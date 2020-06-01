@@ -7,7 +7,7 @@ import GridElement from './components/gridElement';
 const Search = () => {
   const [inputValue, setInputValue] = useState('');
   const debouncedValue = useDebounce(inputValue, 1000);
-  const [data, isLoading, error] = useSearch({ q: debouncedValue, hasImages: true });
+  const [data] = useSearch({ q: debouncedValue, hasImages: true });
   const onInputChange = (e: React.FormEvent<HTMLInputElement>) => {
     setInputValue(e.currentTarget.value);
   };

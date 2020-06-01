@@ -27,15 +27,15 @@ const ROUTES: Route[] = [
     showInNavbar: false,
   },
   {
-    path: '/about',
-    component: () => <div>About</div>,
-    title: 'About',
+    path: '/favorites',
+    component: () => <div>Favorites</div>,
+    title: 'Favorites',
     showInNavbar: true,
   },
   {
-    path: '/contact',
-    component: () => <div>Contact</div>,
-    title: 'Contact',
+    path: '/about',
+    component: () => <div>About</div>,
+    title: 'About',
     showInNavbar: true,
   },
 ];

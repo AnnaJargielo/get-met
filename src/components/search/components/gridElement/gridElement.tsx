@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Image, Text } from 'grommet';
 import { useDataApi } from '../../../../hooks/useDataApi';
+import Loader from '../../../loader';
 
 interface GridProps {
   gridItem: number;
@@ -21,7 +22,7 @@ export const GridElement = ({ gridItem }: GridProps) => {
           Artwork not found
         </Text>
       )}
-      {isLoading && <Image src={process.env.PUBLIC_URL + '/loader.svg'} />}
+      {isLoading && <Loader />}
       {!isLoading && !error && <Image fit="contain" src={data?.primaryImageSmall} />}
     </Box>
   );

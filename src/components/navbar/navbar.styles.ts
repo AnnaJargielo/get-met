@@ -11,8 +11,11 @@ export default {
     fontFamily: 'ButlerBold',
   },
   navbarElement: {
-    fontSize: '1.3rem',
+    fontSize: '1.2rem',
     textDecoration: 'none',
     color: 'black', // TODO: change to predefined color
+  },
+  navbarElementActive: {
+    fontWeight: 600,
   },
 };

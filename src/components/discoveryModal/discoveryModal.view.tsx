@@ -16,8 +16,8 @@ const DiscoveryModal = ({
           <Box height="large" width="large">
             <Image fit="contain" src={discovery.primaryImage} />
           </Box>
-          {discovery.additionalImages.map((src) => (
-            <Box height="large" width="large">
+          {discovery.additionalImages.map((src, idx) => (
+            <Box key={`${src}-${idx}`} height="large" width="large">
               <Image fit="contain" src={src} />
             </Box>
           ))}

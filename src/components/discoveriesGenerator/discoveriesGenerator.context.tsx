@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { SearchResult, useSearch } from '../../hooks';
 import { getRandomInt } from '../../utils';
 import DiscoveryGeneratorContainer from './discoveriesGenerator.container';
+import Loader from '../loader';
 
 export interface DiscoveryState {
   searchResult: SearchResult;
@@ -40,7 +41,7 @@ const DiscoveriesGeneratorContextProvider = () => {
   }, [data]);
 
   if (isLoading || data === undefined || selectedId === undefined) {
-    return <div>Loading</div>;
+    return <Loader />;
   }
 
   if (error) {

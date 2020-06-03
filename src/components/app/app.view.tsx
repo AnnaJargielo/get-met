@@ -14,7 +14,7 @@ const App = () => {
         <Header height="small">
           <Navbar />
         </Header>
-        <Main fill={false}>
+        <Main fill={false} width="large" alignSelf="center">
           <Switch>
             {ROUTES.map((item, idx) => (
               <Route key={idx} {...item} />

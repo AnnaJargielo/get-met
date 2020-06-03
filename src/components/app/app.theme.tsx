@@ -1,8 +1,8 @@
 import { ThemeType } from 'grommet/themes';
 
-const MET_BRAND_COLOR = '#E4022B';
-const GREY_COLOR = '#C5C5C5';
-const BLACK_COLOR = '#000';
+export const MET_BRAND_COLOR = '#E4022B';
+export const GREY_COLOR = '#ADADAD';
+export const BLACK_COLOR = '#000';
 
 const customTheme: ThemeType = {
   button: {
@@ -21,6 +21,8 @@ const customTheme: ThemeType = {
     colors: {
       'accent-1': MET_BRAND_COLOR,
       'accent-2': GREY_COLOR,
+      'accent-3': BLACK_COLOR,
+      focus: GREY_COLOR,
     },
     font: {
       family: 'Roboto-Thin',

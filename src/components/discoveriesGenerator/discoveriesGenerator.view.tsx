@@ -23,6 +23,7 @@ const DiscoveriesGeneratorView = ({
         reverse
         onClick={selectNewDiscovery}
         className={style(styles.newDiscoveryButton)}
+        margin="0 0 30px 0"
       />
 
       <Discovery id={selectedId} />

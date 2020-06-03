@@ -12,7 +12,7 @@ const DiscoveryModal = ({
   return (
     <Layer onEsc={() => setShow(false)} onClickOutside={() => setShow(false)}>
       <Box align="center" pad="large">
-        <Carousel fill>
+        <Carousel controls="arrows" fill>
           <Box height="large" width="large">
             <Image fit="contain" src={discovery.primaryImage} />
           </Box>

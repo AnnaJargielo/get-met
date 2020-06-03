@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Button } from 'grommet';
+import { Box, Button, ThemeContext } from 'grommet';
 import { Refresh } from 'grommet-icons';
 import { Discovery } from '../discovery';
 import { style } from 'typestyle';
@@ -14,17 +14,21 @@ const DiscoveriesGeneratorView = ({
 }) => {
   return (
     <Box flex direction="column" align="center" pad="small">
-      <Button
-        primary
-        size="medium"
-        label="New Discovery"
-        color="accent-1"
-        icon={<Refresh />}
-        reverse
-        onClick={selectNewDiscovery}
-        className={style(styles.newDiscoveryButton)}
-        margin="0 0 30px 0"
-      />
+      <ThemeContext.Consumer>
+        {(theme: any) => (
+          <Button
+            primary
+            size="medium"
+            label="New Discovery"
+            color="accent-1"
+            icon={<Refresh />}
+            reverse
+            onClick={selectNewDiscovery}
+            className={style(styles.newDiscoveryButton)}
+            margin={`0 0 ${theme.global.spacing} 0`}
+          />
+        )}
+      </ThemeContext.Consumer>
 
       <Discovery id={selectedId} />
     </Box>

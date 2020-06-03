@@ -1,31 +1,42 @@
-import React, { useState, useMemo } from 'react';
-import { TextInput } from 'grommet';
-import { Grid } from 'grommet';
-import { useSearch, useDebounce } from '../../hooks';
-import GridElement from './components/gridElement';
+import { Box, Image, TextInput, ThemeContext } from 'grommet';
+import React, { useMemo } from 'react';
+import { SearchResult } from '../../hooks';
+import { Grid } from './components/grid';
 
-const Search = () => {
-  const [inputValue, setInputValue] = useState('');
-  const debouncedValue = useDebounce(inputValue, 1000);
-  const [data] = useSearch({ q: debouncedValue, hasImages: true });
+interface Props {
+  query: string;
+  setQuery: (v: string) => void;
+  isLoading: boolean;
+  result: SearchResult | null | undefined;
+}
+
+const Search = ({ query, setQuery, isLoading, result }: Props) => {
   const onInputChange = (e: React.FormEvent<HTMLInputElement>) => {
-    setInputValue(e.currentTarget.value);
+    setQuery(e.currentTarget.value);
   };
 
-  // TODO remove slice
-  const dataObjects = useMemo(() => {
-    return data?.objectIDs?.slice(0, 6);
-  }, [data]);
+  const content = useMemo(
+    () =>
+      isLoading || result === undefined ? (
+        <Image src={process.env.PUBLIC_URL + '/loader.svg'} />
+      ) : (
+        <Grid items={(result?.objectIDs || []).slice(0, 100)} />
+      ),
+    [isLoading, result]
+  );
 
   return (
-    <>
-      <TextInput placeholder="type here" value={inputValue} onChange={onInputChange} />
-      <Grid rows="small" columns="small" gap="large" margin="large">
-        {dataObjects?.map((item, idx) => (
-          <GridElement key={`${item}-${idx}`} gridItem={item} />
-        ))}
-      </Grid>
-    </>
+    <Box width="large">
+      <ThemeContext.Consumer>
+        {(theme: any) => (
+          <Box margin={`0 0 ${theme.global.spacing} 0`}>
+            <TextInput placeholder="type here" value={query} onChange={onInputChange} />
+          </Box>
+        )}
+      </ThemeContext.Consumer>
+
+      {content}
+    </Box>
   );
 };
 

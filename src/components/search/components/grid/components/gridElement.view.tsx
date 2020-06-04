@@ -5,8 +5,12 @@ interface GridProps {
   children: React.ReactNode;
 }
 
-export const GridElement = ({ children }: GridProps) => {
-  return <Box justify="center">{children}</Box>;
-};
+export const GridElement = React.forwardRef(({ children }: GridProps, ref: any) => {
+  return (
+    <Box ref={ref} justify="center">
+      {children}
+    </Box>
+  );
+});
 
 export default GridElement;

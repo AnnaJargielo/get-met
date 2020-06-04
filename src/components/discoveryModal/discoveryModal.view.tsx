@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { Layer, Box, Carousel, Image, Button } from 'grommet';
+import { Anchor, Button, Box, Carousel, Image, Layer } from 'grommet';
 import { ObjectItem } from '../../hooks';
 import { Close } from 'grommet-icons';
 import { DiscoveryTitle } from '../discovery';
@@ -39,7 +39,7 @@ const DiscoveryModal = ({
       </Box>
       {showDetails && (
         <Box margin="medium">
-          <Button onClick={() => {}}>Learn more</Button>
+          <Anchor href={`/object/${discovery.objectID}`}>Learn more...</Anchor>
         </Box>
       )}
     </Layer>

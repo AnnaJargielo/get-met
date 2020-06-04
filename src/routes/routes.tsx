@@ -1,6 +1,6 @@
 import React from 'react';
 import { RouteProps } from 'react-router-dom';
-import { Home, ObjectPage, Search } from '../components';
+import { Home, ObjectPage, Search, Favorites } from '../components';
 
 interface Route extends RouteProps {
   title?: string;
@@ -28,7 +28,7 @@ const ROUTES: Route[] = [
   },
   {
     path: '/favorites',
-    component: () => <div>Favorites</div>,
+    component: () => <Favorites />,
     title: 'Favorites',
     showInNavbar: true,
   },

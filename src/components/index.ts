@@ -3,3 +3,4 @@ export * from './home';
 export * from './discovery';
 export * from './objectPage';
 export * from './search';
+export * from './favorites';

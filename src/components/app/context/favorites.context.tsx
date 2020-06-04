@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { setValue, getValue } from '../../../utils';
+
+const FAVORITES_KEY = 'get_met_favorites';
 
 export interface FavoritesState {
   favorites: Set<number>;
@@ -15,10 +18,13 @@ const initialState: FavoritesState = {
 export const FavoritesContext = React.createContext<FavoritesState>(initialState);
 
 const FavoritesProvider = ({ children }: { children: React.ReactNode }) => {
-  const [favorites, setFavorites] = useState<Set<number>>(new Set<number>());
+  const storedFavorites = new Set(getValue<number[]>(FAVORITES_KEY) || []);
+
+  const [favorites, setFavorites] = useState<Set<number>>(storedFavorites);
 
   const toggleFavorite = (id: number) => {
-    const newFavoriteSet = new Set(favorites);
+    const fav = getValue<number[]>(FAVORITES_KEY);
+    const newFavoriteSet = new Set(fav || favorites);
     const isFavorite = favorites.has(id);
 
     if (isFavorite) {
@@ -27,6 +33,7 @@ const FavoritesProvider = ({ children }: { children: React.ReactNode }) => {
       newFavoriteSet.add(id);
     }
 
+    setValue(FAVORITES_KEY, Array.from(newFavoriteSet));
     setFavorites(newFavoriteSet);
   };
 

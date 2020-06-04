@@ -4,6 +4,7 @@ import { FormDown, FormNext, Expand, Favorite } from 'grommet-icons';
 import { ObjectItem } from '../../hooks';
 import { style } from 'typestyle';
 import styles from './details.styles';
+import FavoriteIcon from '../favoriteIcon';
 
 const MenuButton = ({
   label,
@@ -58,12 +59,12 @@ const Details = ({
               color="accent-3"
               onClick={onClickExpand}
               className={style(styles.icon)}
+              viewBox="-2 -2 28 28"
             />
-            <Favorite
-              a11yTitle="Add to favorites"
-              color={isFavorite ? 'accent-1' : 'accent-3'}
-              onClick={onClickFavorite}
+            <FavoriteIcon
+              filled={isFavorite}
               className={style(styles.icon)}
+              onClick={onClickFavorite}
             />
           </Box>
         }

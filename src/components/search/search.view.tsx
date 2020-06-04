@@ -1,4 +1,4 @@
-import { Box, Image, TextInput, ThemeContext } from 'grommet';
+import { Box, Image, TextInput } from 'grommet';
 import React, { useMemo } from 'react';
 import { SearchResult } from '../../hooks';
 import { Grid } from './components/grid';
@@ -27,13 +27,9 @@ const Search = ({ query, setQuery, isLoading, result }: Props) => {
 
   return (
     <Box width="large">
-      <ThemeContext.Consumer>
-        {(theme: any) => (
-          <Box margin={`0 0 ${theme.global.spacing} 0`}>
-            <TextInput placeholder="type here" value={query} onChange={onInputChange} />
-          </Box>
-        )}
-      </ThemeContext.Consumer>
+      <Box margin={{ bottom: 'medium' }}>
+        <TextInput placeholder="type here" value={query} onChange={onInputChange} />
+      </Box>
 
       {content}
     </Box>

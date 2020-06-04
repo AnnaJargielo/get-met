@@ -1,6 +1,6 @@
 import React, { useState, Fragment, ReactNode } from 'react';
 import { Anchor, Box, Text, Button, Collapsible } from 'grommet';
-import { FormDown, FormNext, Expand, Favorite } from 'grommet-icons';
+import { FormDown, FormNext, Expand } from 'grommet-icons';
 import { ObjectItem } from '../../hooks';
 import { style } from 'typestyle';
 import styles from './details.styles';

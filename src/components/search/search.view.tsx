@@ -1,4 +1,4 @@
-import { Box, Image, TextInput } from 'grommet';
+import { Box, TextInput } from 'grommet';
 import React, { useMemo } from 'react';
 import { SearchResult } from '../../hooks';
 import { Grid } from './components/grid';
@@ -29,7 +29,7 @@ const Search = ({ query, setQuery, isLoading, result }: Props) => {
   );
 
   return (
-    <Box>
+    <Box fill>
       <Box margin={{ bottom: 'medium' }}>
         <TextInput placeholder="type here" value={query} onChange={onInputChange} />
       </Box>

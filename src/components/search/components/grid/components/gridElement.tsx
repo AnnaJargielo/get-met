@@ -4,6 +4,7 @@ import { Text, Image, Box, Button } from 'grommet';
 import { style } from 'typestyle';
 import { Expand } from 'grommet-icons';
 import { DiscoveryModal } from '../../../../discoveryModal';
+import Loader from '../../../../loader';
 
 const GridElementContainer = React.forwardRef(({ objectId }: { objectId: number }, ref: any) => {
   const [data, isLoading, error] = useObject(objectId);
@@ -36,7 +37,7 @@ const GridElementContainer = React.forwardRef(({ objectId }: { objectId: number 
           Artwork not found
         </Text>
       )}
-      {isLoading && <Image src={process.env.PUBLIC_URL + '/loader.svg'} />}
+      {isLoading && <Loader />}
       {!isLoading && !error && data && <Image fit="contain" src={data?.primaryImageSmall} />}
       {hover && (
         <Box

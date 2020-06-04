@@ -2,6 +2,7 @@ import { Box, Image, TextInput } from 'grommet';
 import React, { useMemo } from 'react';
 import { SearchResult } from '../../hooks';
 import { Grid } from './components/grid';
+import Loader from '../loader';
 
 interface Props {
   query: string;
@@ -18,7 +19,9 @@ const Search = ({ query, setQuery, isLoading, result }: Props) => {
   const content = useMemo(
     () =>
       isLoading || result === undefined ? (
-        <Image src={process.env.PUBLIC_URL + '/loader.svg'} />
+        <Box alignSelf="center" justify="center" fill>
+          <Loader />
+        </Box>
       ) : (
         <Grid items={(result?.objectIDs || []).slice(0, 100)} />
       ),
@@ -26,11 +29,10 @@ const Search = ({ query, setQuery, isLoading, result }: Props) => {
   );
 
   return (
-    <Box width="large">
+    <Box>
       <Box margin={{ bottom: 'medium' }}>
         <TextInput placeholder="type here" value={query} onChange={onInputChange} />
       </Box>
-
       {content}
     </Box>
   );

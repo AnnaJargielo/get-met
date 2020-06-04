@@ -3,6 +3,7 @@ import { SearchResult, useSearch } from '../../hooks';
 import { getRandomInt } from '../../utils';
 import DiscoveryGeneratorContainer from './discoveriesGenerator.container';
 import Loader from '../loader';
+import { Box } from 'grommet';
 
 export interface DiscoveryState {
   searchResult: SearchResult;
@@ -41,7 +42,11 @@ const DiscoveriesGeneratorContextProvider = () => {
   }, [data]);
 
   if (isLoading || data === undefined || selectedId === undefined) {
-    return <Loader />;
+    return (
+      <Box alignSelf="center" justify="center" fill>
+        <Loader />
+      </Box>
+    );
   }
 
   if (error) {

@@ -34,23 +34,16 @@ const MenuButton = ({
 
 const Details = ({
   discovery,
-  setIsModalOpen,
+  onClickExpand,
+  onClickFavorite,
+  isFavorite,
 }: {
   discovery: ObjectItem;
-  setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  isFavorite: boolean;
+  onClickExpand: (e: React.MouseEvent<SVGSVGElement, MouseEvent>) => void;
+  onClickFavorite: (e: React.MouseEvent<SVGSVGElement, MouseEvent>) => void;
 }) => {
   const [open, setOpen] = useState(false);
-  const [favorite, setFavorite] = useState(false);
-
-  const onClickExpand = (e: React.MouseEvent<SVGSVGElement, MouseEvent>) => {
-    e.stopPropagation();
-    setIsModalOpen(true);
-  };
-
-  const onClickFavorite = (e: React.MouseEvent<SVGSVGElement, MouseEvent>) => {
-    e.stopPropagation();
-    setFavorite(!favorite);
-  };
 
   return (
     <Box>
@@ -68,7 +61,7 @@ const Details = ({
             />
             <Favorite
               a11yTitle="Add to favorites"
-              color={favorite ? 'accent-1' : 'accent-3'}
+              color={isFavorite ? 'accent-1' : 'accent-3'}
               onClick={onClickFavorite}
               className={style(styles.icon)}
             />

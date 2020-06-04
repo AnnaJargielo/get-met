@@ -1,7 +1,7 @@
 import { Box, Image, Text } from 'grommet';
 import React, { useState } from 'react';
 import { ObjectItem } from '../../hooks';
-import Details from '../details/details.view';
+import { Details } from '../details';
 import { DiscoveryModal } from '../discoveryModal';
 
 const DiscoveryView = ({ discovery }: { discovery: ObjectItem }) => {

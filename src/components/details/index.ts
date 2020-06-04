@@ -1,1 +1,1 @@
-export { default as Details } from './details.view';
+export { default as Details } from './details.container';

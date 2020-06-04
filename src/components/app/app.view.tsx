@@ -6,23 +6,26 @@ import { ROUTES } from '../../routes';
 import { deepMerge } from 'grommet/utils';
 import { base } from 'grommet/themes';
 import customTheme from './app.theme';
+import { FavoritesContext } from './context';
 
 const App = () => {
   return (
-    <Grommet full theme={deepMerge(base, customTheme)}>
-      <Box fill>
-        <Header height="small">
-          <Navbar />
-        </Header>
-        <Main fill={false} width="large" alignSelf="center">
-          <Switch>
-            {ROUTES.map((item, idx) => (
-              <Route key={idx} {...item} />
-            ))}
-          </Switch>
-        </Main>
-      </Box>
-    </Grommet>
+    <FavoritesContext>
+      <Grommet full theme={deepMerge(base, customTheme)}>
+        <Box fill>
+          <Header height="small">
+            <Navbar />
+          </Header>
+          <Main fill={false} width="large" alignSelf="center">
+            <Switch>
+              {ROUTES.map((item, idx) => (
+                <Route key={idx} {...item} />
+              ))}
+            </Switch>
+          </Main>
+        </Box>
+      </Grommet>
+    </FavoritesContext>
   );
 };
 

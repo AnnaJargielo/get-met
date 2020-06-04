@@ -2,16 +2,22 @@ import React, { useMemo } from 'react';
 import { NavLink } from 'react-router-dom';
 import { ROUTES } from '../../routes';
 import { style } from 'typestyle';
-import { Box, Text } from 'grommet';
+import { Box, Text, ResponsiveContext } from 'grommet';
 import styles from './navbar.styles';
 
-const Logo = () => (
-  <span>
-    <Text className={style(styles.logoFirst)}>let's get</Text>
+const LogoElements = ({ stacked }: { stacked?: boolean }) => (
+  <Box direction={stacked ? 'column' : 'row'}>
+    <Text className={style({ ...styles.logoFirst }, stacked && { height: '72px' })}>let's get</Text>
     <Text className={style(styles.logoSecond)} color="accent-1">
       MET
     </Text>
-  </span>
+  </Box>
+);
+
+const Logo = () => (
+  <ResponsiveContext.Consumer>
+    {(responsive) => <LogoElements stacked={responsive === 'small'} />}
+  </ResponsiveContext.Consumer>
 );
 
 const NavLayout = ({ children }: { children: React.ReactNode }) => (

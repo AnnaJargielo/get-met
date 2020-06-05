@@ -23,6 +23,7 @@ const DiscoveryView = ({
 
       <Box width="auto" height="medium" align="center" justify="center" pad="small">
         <Image
+          alt="Artwork image"
           className={style({ cursor: 'pointer' })}
           fit="contain"
           src={discovery.primaryImageSmall}

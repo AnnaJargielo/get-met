@@ -1,9 +1,22 @@
 import React, { useCallback } from 'react';
-import { Anchor, Button, Box, Carousel, Image, Layer } from 'grommet';
+import { Anchor, Button, Box, Carousel, Image, Layer, ResponsiveContext } from 'grommet';
 import { ObjectItem } from '../../hooks';
 import { Close } from 'grommet-icons';
 import { DiscoveryTitle } from '../discovery';
-import FavoriteIcon from '../favoriteIcon';
+import { FavoriteIcon } from '../icons';
+
+const ResponsiveBox = ({ children }: { children: React.ReactNode }) => (
+  <ResponsiveContext.Consumer>
+    {(responsive) => {
+      const breakpoint = responsive === 'small' ? 'medium' : responsive;
+      return (
+        <Box height={breakpoint} width={breakpoint} alignSelf="center">
+          {children}
+        </Box>
+      );
+    }}
+  </ResponsiveContext.Consumer>
+);
 
 const DiscoveryModal = ({
   discovery,
@@ -32,20 +45,21 @@ const DiscoveryModal = ({
       )}
       <Box align="center" pad="large">
         <Carousel controls="arrows" fill>
-          <Box height="large" width="large">
-            <Image fit="contain" src={discovery.primaryImage} />
-          </Box>
+          <ResponsiveBox>
+            <Image alt="Artwork image" fit="contain" src={discovery.primaryImage} />
+          </ResponsiveBox>
+
           {discovery.additionalImages.map((src, idx) => (
-            <Box key={`${src}-${idx}`} height="large" width="large">
-              <Image fit="contain" src={src} />
-            </Box>
+            <ResponsiveBox key={`${idx}-${src}`}>
+              <Image alt="Artwork additional image" fit="contain" src={src} />
+            </ResponsiveBox>
           ))}
         </Carousel>
       </Box>
       {showDetails && (
-        <Box margin="medium" flex direction="row" justify="between">
+        <Box margin="medium" flex direction="row" justify="between" align="start">
           <Anchor href={`/object/${discovery.objectID}`}>Learn more...</Anchor>
-          <FavoriteIcon filled={isFavorite} onClick={onClickFavorite} />
+          <FavoriteIcon filled={isFavorite} onClick={onClickFavorite} isButton />
         </Box>
       )}
     </Layer>

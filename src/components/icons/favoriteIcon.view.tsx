@@ -1,12 +1,13 @@
 import React from 'react';
-import { MET_BRAND_COLOR } from '../app/app.theme';
-import styles from './favoriteIcon.styles';
+import { MET_BRAND_COLOR, BLACK_COLOR } from '../app/app.theme';
+import styles from './icon.styles';
 import { style, classes } from 'typestyle';
 
 interface FavoriteIconStyle {
-  filled: boolean;
+  filled?: boolean;
   className?: string;
-  onClick: (e: React.MouseEvent<SVGSVGElement, MouseEvent>) => void;
+  onClick?: (e: React.MouseEvent<SVGSVGElement, MouseEvent>) => void;
+  isButton?: boolean;
 }
 
 const heartOutline = (
@@ -24,11 +25,11 @@ const heartFilled = (
   />
 );
 
-const FavoriteIcon = ({ filled, className, onClick }: FavoriteIconStyle) => {
+const FavoriteIcon = ({ filled, className, onClick, isButton }: FavoriteIconStyle) => {
   return (
     <svg
-      className={classes(className, style(styles.icon))}
-      stroke="#000"
+      className={classes(className, isButton && style(styles.icon))}
+      stroke={BLACK_COLOR}
       viewBox="-15 -45 550 550"
       xmlns="http://www.w3.org/2000/svg"
       width="24px"

@@ -7,14 +7,14 @@ export default {
   },
   logoSecond: {
     fontSize: '6.5rem',
-    height: 42,
+    height: 32,
     marginLeft: '2rem',
     fontFamily: 'ButlerBold',
   },
   navbarElement: {
     fontSize: '1.2rem',
     textDecoration: 'none',
-    color: BLACK_COLOR, // TODO: change to predefined color
+    color: BLACK_COLOR,
   },
   navbarElementActive: {
     fontWeight: 600,

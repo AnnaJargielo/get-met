@@ -1,8 +1,9 @@
 import { Anchor, Box, Button, Collapsible, Text } from 'grommet';
-import { Expand, FormDown, FormNext } from 'grommet-icons';
+import { FormDown, FormNext } from 'grommet-icons';
 import React, { Fragment, ReactNode, useState } from 'react';
 import { ObjectItem } from '../../hooks';
-import FavoriteIcon from '../favoriteIcon';
+import { FavoriteIcon } from '../icons';
+import { ExpandIcon } from '../icons';
 
 const MenuButton = ({
   label,
@@ -53,15 +54,10 @@ const Details = ({
         rightSlot={
           <Box gridArea="icons" direction="row" pad="small">
             <Box margin={{ right: 'xsmall' }}>
-              <Expand
-                a11yTitle="Expand image"
-                color="accent-3"
-                onClick={onClickExpand}
-                viewBox="-2 -2 28 28"
-              />
+              <ExpandIcon color="accent-3" onClick={onClickExpand} viewBox="-2 -2 28 28" isButton />
             </Box>
 
-            <FavoriteIcon filled={isFavorite} onClick={onClickFavorite} />
+            <FavoriteIcon filled={isFavorite} onClick={onClickFavorite} isButton />
           </Box>
         }
       />

@@ -1,6 +1,7 @@
 import React from 'react';
 import { RouteProps } from 'react-router-dom';
 import { Home, ObjectPage, Search, Favorites } from '../components';
+import About from '../components/about';
 
 interface Route extends RouteProps {
   title?: string;
@@ -34,7 +35,7 @@ const ROUTES: Route[] = [
   },
   {
     path: '/about',
-    component: () => <div>About</div>,
+    component: () => <About />,
     title: 'About',
     showInNavbar: true,
   },

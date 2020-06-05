@@ -30,9 +30,7 @@ const Search = ({ query, setQuery, isLoading, result }: Props) => {
 
   return (
     <Box fill>
-      <Box margin={{ bottom: 'medium' }}>
-        <TextInput placeholder="type here" value={query} onChange={onInputChange} />
-      </Box>
+      <TextInput placeholder="type here" value={query} onChange={onInputChange} />
       {content}
     </Box>
   );

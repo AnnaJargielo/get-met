@@ -4,6 +4,7 @@ import { ObjectItem } from '../../hooks';
 import { Details } from '../details';
 import { DiscoveryModal } from '../discoveryModal';
 import { DiscoveryTitle } from './components';
+import { style } from 'typestyle';
 
 const DiscoveryView = ({
   discovery,
@@ -22,6 +23,7 @@ const DiscoveryView = ({
 
       <Box width="auto" height="medium" align="center" justify="center" pad="small">
         <Image
+          className={style({ cursor: 'pointer' })}
           fit="contain"
           src={discovery.primaryImageSmall}
           onClick={() => setIsModalOpen(true)}

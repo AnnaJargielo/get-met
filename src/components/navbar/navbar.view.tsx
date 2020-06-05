@@ -32,7 +32,7 @@ const NavRoutes = () => {
   const routes = useMemo(
     () =>
       ROUTES.filter((item) => item.showInNavbar).map((item, idx) => (
-        <Box key={idx} margin={{ left: 'small' }}>
+        <Box key={idx} margin={{ left: 'small', top: 'small' }}>
           <NavLink
             exact
             to={item.path as string}

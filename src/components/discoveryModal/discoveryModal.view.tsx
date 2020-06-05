@@ -3,15 +3,20 @@ import { Anchor, Button, Box, Carousel, Image, Layer } from 'grommet';
 import { ObjectItem } from '../../hooks';
 import { Close } from 'grommet-icons';
 import { DiscoveryTitle } from '../discovery';
+import FavoriteIcon from '../favoriteIcon';
 
 const DiscoveryModal = ({
   discovery,
   showDetails,
   setShow,
+  isFavorite,
+  onClickFavorite,
 }: {
   discovery: ObjectItem;
   showDetails?: boolean;
   setShow: (open: boolean) => void;
+  isFavorite: boolean;
+  onClickFavorite: (e: React.MouseEvent<SVGSVGElement, MouseEvent>) => void;
 }) => {
   const close = useCallback(() => {
     setShow(false);
@@ -38,8 +43,9 @@ const DiscoveryModal = ({
         </Carousel>
       </Box>
       {showDetails && (
-        <Box margin="medium">
+        <Box margin="medium" flex direction="row" justify="between">
           <Anchor href={`/object/${discovery.objectID}`}>Learn more...</Anchor>
+          <FavoriteIcon filled={isFavorite} onClick={onClickFavorite} />
         </Box>
       )}
     </Layer>

@@ -1,9 +1,11 @@
 import React from 'react';
 import { MET_BRAND_COLOR } from '../app/app.theme';
+import styles from './favoriteIcon.styles';
+import { style, classes } from 'typestyle';
 
 interface FavoriteIconStyle {
   filled: boolean;
-  className: string;
+  className?: string;
   onClick: (e: React.MouseEvent<SVGSVGElement, MouseEvent>) => void;
 }
 
@@ -25,7 +27,7 @@ const heartFilled = (
 const FavoriteIcon = ({ filled, className, onClick }: FavoriteIconStyle) => {
   return (
     <svg
-      className={className}
+      className={classes(className, style(styles.icon))}
       stroke="#000"
       viewBox="-15 -45 550 550"
       xmlns="http://www.w3.org/2000/svg"

@@ -1,8 +1,8 @@
 import { Box, TextInput } from 'grommet';
 import React, { useMemo } from 'react';
 import { SearchResult } from '../../hooks';
-import { Grid } from './components/grid';
 import Loader from '../loader';
+import { Grid } from './components/grid';
 
 interface Props {
   query: string;

@@ -1,9 +1,7 @@
-import React, { useState, Fragment, ReactNode } from 'react';
-import { Anchor, Box, Text, Button, Collapsible } from 'grommet';
-import { FormDown, FormNext, Expand } from 'grommet-icons';
+import { Anchor, Box, Button, Collapsible, Text } from 'grommet';
+import { Expand, FormDown, FormNext } from 'grommet-icons';
+import React, { Fragment, ReactNode, useState } from 'react';
 import { ObjectItem } from '../../hooks';
-import { style } from 'typestyle';
-import styles from './details.styles';
 import FavoriteIcon from '../favoriteIcon';
 
 const MenuButton = ({
@@ -54,18 +52,16 @@ const Details = ({
         onClick={() => setOpen(!open)}
         rightSlot={
           <Box gridArea="icons" direction="row" pad="small">
-            <Expand
-              a11yTitle="Expand image"
-              color="accent-3"
-              onClick={onClickExpand}
-              className={style(styles.icon)}
-              viewBox="-2 -2 28 28"
-            />
-            <FavoriteIcon
-              filled={isFavorite}
-              className={style(styles.icon)}
-              onClick={onClickFavorite}
-            />
+            <Box margin={{ right: 'xsmall' }}>
+              <Expand
+                a11yTitle="Expand image"
+                color="accent-3"
+                onClick={onClickExpand}
+                viewBox="-2 -2 28 28"
+              />
+            </Box>
+
+            <FavoriteIcon filled={isFavorite} onClick={onClickFavorite} />
           </Box>
         }
       />

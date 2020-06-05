@@ -3,8 +3,8 @@ import FavoritesView from './favorites.view';
 import { FavoritesContext } from '../app/context/favorites.context';
 
 const FavoritesContainer = () => {
-  const { favorites, toggleFavorite } = useContext(FavoritesContext);
-  return <FavoritesView favorites={Array.from(favorites)} toggleFavorite={toggleFavorite} />;
+  const { favorites } = useContext(FavoritesContext);
+  return <FavoritesView favorites={Array.from(favorites)} />;
 };
 
 export default FavoritesContainer;

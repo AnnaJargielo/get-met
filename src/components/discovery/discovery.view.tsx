@@ -5,7 +5,15 @@ import { Details } from '../details';
 import { DiscoveryModal } from '../discoveryModal';
 import { DiscoveryTitle } from './components';
 
-const DiscoveryView = ({ discovery }: { discovery: ObjectItem }) => {
+const DiscoveryView = ({
+  discovery,
+  isFavorite,
+  onClickFavorite,
+}: {
+  discovery: ObjectItem;
+  isFavorite: boolean;
+  onClickFavorite: (e: React.MouseEvent<SVGSVGElement, MouseEvent>) => void;
+}) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
@@ -22,7 +30,14 @@ const DiscoveryView = ({ discovery }: { discovery: ObjectItem }) => {
       <Box id="artwork-details" fill="horizontal">
         <Details discovery={discovery} setIsModalOpen={setIsModalOpen} />
       </Box>
-      {isModalOpen && <DiscoveryModal discovery={discovery} setShow={setIsModalOpen} />}
+      {isModalOpen && (
+        <DiscoveryModal
+          discovery={discovery}
+          setShow={setIsModalOpen}
+          isFavorite={isFavorite}
+          onClickFavorite={onClickFavorite}
+        />
+      )}
     </Box>
   );
 };

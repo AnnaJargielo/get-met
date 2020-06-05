@@ -1,13 +1,7 @@
 import React from 'react';
 import { Grid } from '../search/components/grid';
 
-const FavoritesView = ({
-  favorites,
-  toggleFavorite,
-}: {
-  favorites: number[];
-  toggleFavorite: (id: number) => void;
-}) => {
+const FavoritesView = ({ favorites }: { favorites: number[] }) => {
   return <Grid items={favorites} />;
 };
 

@@ -1,15 +1,22 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useContext } from 'react';
 import { useObject } from '../../../../../hooks';
 import { Text, Image, Box, Button } from 'grommet';
 import { style } from 'typestyle';
 import { Expand } from 'grommet-icons';
 import { DiscoveryModal } from '../../../../discoveryModal';
 import Loader from '../../../../loader';
+import { FavoritesContext } from '../../../../app/context/favorites.context';
 
 const GridElementContainer = React.forwardRef(({ objectId }: { objectId: number }, ref: any) => {
+  const { favorites, toggleFavorite } = useContext(FavoritesContext);
   const [data, isLoading, error] = useObject(objectId);
   const [hover, setHover] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const onClickFavorite = (e: React.MouseEvent<SVGSVGElement, MouseEvent>) => {
+    e.stopPropagation();
+    toggleFavorite(objectId);
+  };
 
   const enter = useCallback(() => {
     setHover(true);
@@ -53,7 +60,13 @@ const GridElementContainer = React.forwardRef(({ objectId }: { objectId: number 
         </Box>
       )}
       {isModalOpen && (
-        <DiscoveryModal showDetails={true} discovery={data!} setShow={setIsModalOpen} />
+        <DiscoveryModal
+          showDetails={true}
+          discovery={data!}
+          setShow={setIsModalOpen}
+          isFavorite={favorites.has(objectId)}
+          onClickFavorite={onClickFavorite}
+        />
       )}
     </Box>
   );

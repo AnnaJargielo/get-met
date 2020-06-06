@@ -1,14 +1,15 @@
 import React, { useCallback } from 'react';
-import { Anchor, Button, Box, Carousel, Image, Layer, ResponsiveContext } from 'grommet';
+import { Button, Box, Carousel, Image, Layer, ResponsiveContext } from 'grommet';
 import { ObjectItem } from '../../hooks';
 import { Close } from 'grommet-icons';
 import { DiscoveryTitle } from '../discovery';
 import { FavoriteIcon } from '../icons';
+import Link from '../link';
 
 const ResponsiveBox = ({ children }: { children: React.ReactNode }) => (
   <ResponsiveContext.Consumer>
     {(responsive) => {
-      const breakpoint = responsive === 'small' ? 'medium' : responsive;
+      const breakpoint = responsive === 'small' ? 'medium' : 'large';
       return (
         <Box height={breakpoint} width={breakpoint} alignSelf="center">
           {children}
@@ -58,7 +59,7 @@ const DiscoveryModal = ({
       </Box>
       {showDetails && (
         <Box margin="medium" flex direction="row" justify="between" align="start">
-          <Anchor href={`/object/${discovery.objectID}`}>Learn more...</Anchor>
+          <Link to={`/object/${discovery.objectID}`}>Learn more...</Link>
           <FavoriteIcon filled={isFavorite} onClick={onClickFavorite} isButton />
         </Box>
       )}

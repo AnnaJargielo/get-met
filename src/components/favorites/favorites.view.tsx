@@ -1,6 +1,7 @@
 import React from 'react';
 import { Grid } from '../search/components/grid';
-import { Anchor, Text } from 'grommet';
+import { Text } from 'grommet';
+import Link from '../link';
 
 const FavoritesView = ({ favorites }: { favorites: number[] }) => {
   return favorites.length ? (
@@ -8,9 +9,9 @@ const FavoritesView = ({ favorites }: { favorites: number[] }) => {
   ) : (
     <Text alignSelf="center" margin={{ horizontal: 'medium' }}>
       You don’t have any favorite art pieces yet. Let’s find some{' '}
-      <Anchor color="accent-1" href="/">
+      <Link to="/" color="accent-1">
         here
-      </Anchor>
+      </Link>
       !
     </Text>
   );

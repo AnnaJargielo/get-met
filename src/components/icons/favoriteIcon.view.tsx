@@ -28,11 +28,10 @@ const heartFilled = (
 const FavoriteIcon = ({ filled, className, onClick, isButton }: FavoriteIconStyle) => {
   return (
     <svg
-      className={classes(className, isButton && style(styles.icon))}
+      className={classes(className, style(styles.icon), isButton && style(styles.buttonIcon))}
       stroke={BLACK_COLOR}
       viewBox="-15 -45 550 550"
       xmlns="http://www.w3.org/2000/svg"
-      width="24px"
       onClick={onClick}
     >
       {filled ? heartFilled : heartOutline}

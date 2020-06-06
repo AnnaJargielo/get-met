@@ -10,7 +10,7 @@ interface ExpandIconProps extends IconProps {
 }
 
 const ExpandIcon = ({ isButton, ...rest }: ExpandIconProps) => {
-  return <Expand {...rest} className={classes(isButton && style(styles.icon))} />;
+  return <Expand {...rest} className={classes(isButton && style(styles.buttonIcon))} />;
 };
 
 export default ExpandIcon;

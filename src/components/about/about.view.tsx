@@ -38,7 +38,7 @@ const About = () => (
         </JustifiedText>
         <JustifiedText bold>
           I hope you enjoy using the <i>let’s get MET</i> app. May it bring you closer to the
-          wonderful world of art.
+          wonderful world of art!
         </JustifiedText>
         <JustifiedText>
           The application is a demo of The Metropolitan Museum of Art Collection API:

@@ -19,17 +19,21 @@ const GridElementContainer = React.forwardRef(({ objectId }: { objectId: number 
   };
 
   const enter = useCallback(() => {
-    setHover(true);
-  }, [setHover]);
+    if (!isLoading) {
+      setHover(true);
+    }
+  }, [setHover, isLoading]);
 
   const leave = useCallback(() => {
     setHover(false);
   }, [setHover]);
 
   const expand = useCallback(() => {
-    setIsModalOpen(!isModalOpen);
-    setHover(false);
-  }, [isModalOpen]);
+    if (!isLoading) {
+      setIsModalOpen(!isModalOpen);
+      setHover(false);
+    }
+  }, [isModalOpen, isLoading]);
 
   return (
     <Box

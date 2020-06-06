@@ -19,7 +19,7 @@ const Search = ({ query, setQuery, isLoading, result }: Props) => {
   const content = useMemo(
     () =>
       isLoading || result === undefined ? (
-        <Box alignSelf="center" justify="center" fill>
+        <Box alignSelf="center" justify="center" pad="xlarge">
           <Loader />
         </Box>
       ) : (

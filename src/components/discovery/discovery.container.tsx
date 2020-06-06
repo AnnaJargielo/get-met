@@ -17,7 +17,7 @@ const DiscoveryContainer = ({ id }: { id: number }) => {
 
   if (isLoading || data === undefined) {
     return (
-      <Box alignSelf="center" justify="center" fill>
+      <Box alignSelf="center" justify="center" pad="medium">
         <Loader />
       </Box>
     );

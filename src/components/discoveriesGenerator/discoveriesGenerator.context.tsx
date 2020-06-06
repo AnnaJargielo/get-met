@@ -43,7 +43,7 @@ const DiscoveriesGeneratorContextProvider = () => {
 
   if (isLoading || data === undefined || selectedId === undefined) {
     return (
-      <Box alignSelf="center" justify="center" fill>
+      <Box alignSelf="center" justify="center" pad="xlarge">
         <Loader />
       </Box>
     );

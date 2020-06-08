@@ -18,7 +18,7 @@ const DiscoveryView = ({
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <Box direction="column" align="center" fill="horizontal">
+    <Box direction="column" align="center" fill="horizontal" pad="small">
       <DiscoveryTitle discovery={discovery} />
 
       <Box width="auto" height="medium" align="center" justify="center" pad="small">

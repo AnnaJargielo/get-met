@@ -13,7 +13,7 @@ const DiscoveriesGeneratorView = ({
   selectNewDiscovery: () => void;
 }) => {
   return (
-    <Box flex direction="column" align="center" pad="small">
+    <Box flex direction="column" align="center">
       <Button
         primary
         size="medium"

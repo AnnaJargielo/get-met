@@ -1,11 +1,10 @@
 import React, { useState, useCallback, useContext } from 'react';
 import { useObject } from '../../../../../hooks';
-import { Text, Image, Box, Button } from 'grommet';
-import { style } from 'typestyle';
+import { Box, ThemeContext, Image, Text } from 'grommet';
+import { style, classes } from 'typestyle';
 import { DiscoveryModal } from '../../../../discoveryModal';
 import Loader from '../../../../loader';
 import { FavoritesContext } from '../../../../app/context/favorites.context';
-import { ExpandIcon } from '../../../../icons';
 
 const GridElementContainer = React.forwardRef(({ objectId }: { objectId: number }, ref: any) => {
   const { favorites, toggleFavorite } = useContext(FavoritesContext);
@@ -36,44 +35,36 @@ const GridElementContainer = React.forwardRef(({ objectId }: { objectId: number 
   }, [isModalOpen, isLoading]);
 
   return (
-    <Box
-      onMouseEnter={enter}
-      onMouseLeave={leave}
-      className={style({ position: 'relative' })}
-      justify="center"
-    >
-      {error && (
-        <Text alignSelf="center" color="accent-1">
-          Artwork not found
-        </Text>
-      )}
-      {isLoading && <Loader />}
-      {!isLoading && !error && data && (
-        <Image alt="Artwork image" fit="contain" src={data?.primaryImageSmall} />
-      )}
-      {hover && (
+    <ThemeContext.Consumer>
+      {(theme: any) => (
         <Box
-          className={style({ position: 'absolute' })}
-          fill
-          background={{ color: 'dark-1', opacity: 0.3 }}
+          onMouseEnter={enter}
+          onMouseLeave={leave}
+          onClick={expand}
+          className={classes(hover && style({ backgroundColor: theme.global.colors['accent-3'] }))}
           justify="center"
-          align="center"
         >
-          <Button onClick={expand}>
-            <ExpandIcon color="accent-4" size="large" />
-          </Button>
+          {error && (
+            <Text alignSelf="center" color="accent-1">
+              Artwork not found
+            </Text>
+          )}
+          {isLoading && <Loader />}
+          {!isLoading && !error && data && (
+            <Image alt="Artwork image" fit="contain" src={data?.primaryImageSmall} />
+          )}
+          {isModalOpen && (
+            <DiscoveryModal
+              showDetails={true}
+              discovery={data!}
+              setShow={setIsModalOpen}
+              isFavorite={favorites.has(objectId)}
+              onClickFavorite={onClickFavorite}
+            />
+          )}
         </Box>
       )}
-      {isModalOpen && (
-        <DiscoveryModal
-          showDetails={true}
-          discovery={data!}
-          setShow={setIsModalOpen}
-          isFavorite={favorites.has(objectId)}
-          onClickFavorite={onClickFavorite}
-        />
-      )}
-    </Box>
+    </ThemeContext.Consumer>
   );
 });
 

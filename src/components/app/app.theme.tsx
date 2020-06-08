@@ -1,7 +1,7 @@
 import { ThemeType } from 'grommet/themes';
 
 export const MET_BRAND_COLOR = '#E4022B';
-export const GREY_COLOR = '#ADADAD';
+export const GREY_COLOR = '#E8E8E8';
 export const BLACK_COLOR = '#000';
 export const WHITE_COLOR = '#FFF';
 

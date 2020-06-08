@@ -41,7 +41,7 @@ const GridElementContainer = React.forwardRef(({ objectId }: { objectId: number 
           onMouseEnter={enter}
           onMouseLeave={leave}
           onClick={expand}
-          className={classes(hover && style({ backgroundColor: theme.global.colors['accent-3'] }))}
+          className={classes(hover && style({ backgroundColor: theme.global.colors['accent-2'] }))}
           justify="center"
         >
           {error && (

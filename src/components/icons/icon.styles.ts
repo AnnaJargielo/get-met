@@ -1,16 +1,18 @@
-import { MET_BRAND_COLOR } from '../app/app.theme';
+import { style } from 'typestyle';
+
+const buttonIcon = (color: string) => ({
+  cursor: 'pointer',
+  '&:hover': {
+    stroke: color,
+    fill: color,
+    transition: 'ease-in-out .3s',
+  },
+});
 
 export default {
-  buttonIcon: {
-    cursor: 'pointer',
-    '&:hover': {
-      stroke: MET_BRAND_COLOR,
-      fill: MET_BRAND_COLOR,
-      transition: 'ease-in-out .3s',
-    },
-  },
-  icon: {
+  icon: style({
     width: 24,
     height: 24,
-  },
+  }),
+  buttonIcon,
 };

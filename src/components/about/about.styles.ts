@@ -1,6 +1,8 @@
+import { style } from 'typestyle';
+
 export default {
-  iconStyle: {
+  iconStyle: style({
     height: 17,
     marginBottom: -3,
-  },
+  }),
 };

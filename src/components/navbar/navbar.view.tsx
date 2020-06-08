@@ -1,14 +1,14 @@
 import React, { useMemo } from 'react';
 import { NavLink } from 'react-router-dom';
 import { ROUTES } from '../../routes';
-import { style } from 'typestyle';
-import { Box, Text, ResponsiveContext } from 'grommet';
+import { classes } from 'typestyle';
+import { Box, ResponsiveContext, Text, ThemeContext } from 'grommet';
 import styles from './navbar.styles';
 
 const LogoElements = ({ stacked }: { stacked?: boolean }) => (
   <Box direction={stacked ? 'column' : 'row'}>
-    <Text className={style({ ...styles.logoFirst }, stacked && { height: '72px' })}>let's get</Text>
-    <Text className={style(styles.logoSecond)} color="accent-1">
+    <Text className={classes(styles.logoFirst, stacked && styles.logoStacked)}>let's get</Text>
+    <Text className={styles.logoSecond} color="accent-1">
       MET
     </Text>
   </Box>
@@ -32,16 +32,20 @@ const NavRoutes = () => {
   const routes = useMemo(
     () =>
       ROUTES.filter((item) => item.showInNavbar).map((item, idx) => (
-        <Box key={idx} margin={{ left: 'small', top: 'small' }}>
-          <NavLink
-            exact
-            to={item.path as string}
-            activeClassName={style(styles.navbarElementActive)}
-            className={style(styles.navbarElement)}
-          >
-            {item.title}
-          </NavLink>
-        </Box>
+        <ThemeContext.Consumer key={`${item}-${idx}`}>
+          {(theme: any) => (
+            <Box margin={{ left: 'small', top: 'small' }}>
+              <NavLink
+                exact
+                to={item.path as string}
+                activeClassName={styles.navbarElementActive}
+                className={styles.navbarElement(theme.global.colors['accent-3'])}
+              >
+                {item.title}
+              </NavLink>
+            </Box>
+          )}
+        </ThemeContext.Consumer>
       )),
     []
   );

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Anchor, Box, ResponsiveContext, Text } from 'grommet';
-import { style } from 'typestyle';
 import { Expand } from 'grommet-icons';
 import { FavoriteIcon } from '../icons';
 import styles from './about.styles';
@@ -24,11 +23,10 @@ const About = () => (
           The first page you are landing on, the homepage, is a place where you can find a randomly
           chosen piece of art, called a “Discovery”. You can gain some insight of it by clicking a
           “Details” button or view a gallery of full sized images by choosing{' '}
-          <Expand color="accent-3" className={style(styles.iconStyle)} />. If you really like the
-          piece and would like to keep a record of it, click a{' '}
-          <FavoriteIcon className={style(styles.iconStyle)} /> button to add it to your list of
-          favorites. All the items that you liked are collected and displayed on the “Favorites”
-          page.
+          <Expand color="accent-3" className={styles.iconStyle} />. If you really like the piece and
+          would like to keep a record of it, click a <FavoriteIcon className={styles.iconStyle} />{' '}
+          button to add it to your list of favorites. All the items that you liked are collected and
+          displayed on the “Favorites” page.
         </JustifiedText>
         <JustifiedText>
           “Search” page allows you to look through the MET collection by using a keyword. It can be

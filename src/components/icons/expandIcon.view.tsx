@@ -1,7 +1,8 @@
 import React from 'react';
 import { Expand, IconProps } from 'grommet-icons';
-import { style, classes } from 'typestyle';
+import { classes } from 'typestyle';
 import styles from './icon.styles';
+import { ThemeContext } from 'grommet';
 
 interface ExpandIconProps extends IconProps {
   isButton?: boolean;
@@ -10,7 +11,16 @@ interface ExpandIconProps extends IconProps {
 }
 
 const ExpandIcon = ({ isButton, ...rest }: ExpandIconProps) => {
-  return <Expand {...rest} className={classes(isButton && style(styles.buttonIcon))} />;
+  return (
+    <ThemeContext.Consumer>
+      {(theme: any) => (
+        <Expand
+          {...rest}
+          className={classes(isButton && styles.buttonIcon(theme.global.colors['accent-1']))}
+        />
+      )}
+    </ThemeContext.Consumer>
+  );
 };
 
 export default ExpandIcon;

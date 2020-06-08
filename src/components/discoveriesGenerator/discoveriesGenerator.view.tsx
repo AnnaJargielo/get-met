@@ -1,7 +1,6 @@
 import { Box, Button } from 'grommet';
 import { Refresh } from 'grommet-icons';
 import React from 'react';
-import { style } from 'typestyle';
 import { Discovery } from '../discovery';
 import styles from './discoveriesGenerator.styles';
 
@@ -22,7 +21,7 @@ const DiscoveriesGeneratorView = ({
         icon={<Refresh />}
         reverse
         onClick={selectNewDiscovery}
-        className={style(styles.newDiscoveryButton)}
+        className={styles.newDiscoveryButton}
         margin={{ bottom: 'medium' }}
       />
       <Discovery id={selectedId} />
